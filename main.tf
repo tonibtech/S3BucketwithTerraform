@@ -54,16 +54,6 @@ resource "aws_s3_bucket_versioning" "my_protected_bucket_versioning" {
   }
 }
 
-#################################
-# Enable server access logging
-#################################
-resource "aws_s3_bucket_logging" "my_protected_bucket_logging" {
-  bucket = aws_s3_bucket.my_protected_bucket.id
-
-  target_bucket = var.access_logging_bucket_name
-  target_prefix = "${var.bucket_name}/"
-}
-
 ##########################################
 # Enable default Server Side Encryption
 ##########################################
